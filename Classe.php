@@ -1,5 +1,5 @@
 <?php
-class Classe{
+class Classe implements JsonSerializable{
     private $nome;
     private $alunni;
 
@@ -33,6 +33,12 @@ class Classe{
         return $string;
     }
 
+    function jsonSerialize(){
+        return[
+            "nome"=> $this->nome,
+            "alunni"=> $this->alunni
+        ];
+    }
 }
 
 ?>
